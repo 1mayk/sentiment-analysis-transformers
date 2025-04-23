@@ -1,0 +1,26 @@
+{
+  "name": "sentiment-desktop",
+  "version": "1.0.0",
+  "description": "App desktop de análise de sentimento",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.suaempresa.sentiment",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/app-icon.ico"
+    },
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}

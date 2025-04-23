@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+transformers
+torch
+datasets
+pandas
+openpyxl
+python-docx
+PyPDF2
+pdfminer.six
