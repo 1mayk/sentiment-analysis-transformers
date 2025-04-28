@@ -21,6 +21,13 @@ def train_model(data_path, epochs=3, batch_size=16, lr=5e-5):
     # 3. Carrega dados
     ds = load_dataset("csv", data_files={"train": data_path, "test": data_path})
 
+    # Mapeamento de string para label numérica
+    label_map = {"ruim": 0, "neutro": 1, "bom": 2}
+    def label_to_id(example):
+        example["label"] = label_map.get(str(example["label"]).strip().lower(), 1)
+        return example
+    ds = ds.map(label_to_id)
+
     def tok(ex):
         return tokenizer(
             ex["text"], truncation=True, padding="max_length", max_length=128
